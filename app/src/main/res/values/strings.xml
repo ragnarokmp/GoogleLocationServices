@@ -6,6 +6,23 @@
     <string name="main_geo_title">Geofencing API</string>
     <string name="main_pla_title">Places API</string>
     <string name="main_acr_title">Activity Recognition</string>
+    <string name="ARD_app_name">ActivityRecognitionDemo</string>
+    <string name="ARD_action_settings">Settings</string>
+    <string name="ARD_most_probable">Most probable activity:</string>
+    <string name="ARD_in_vehicle">In a vehicle</string>
+    <string name="ARD_on_bicycle">On bicycle</string>
+    <string name="ARD_on_foot">On foot</string>
+    <string name="ARD_running">Running</string>
+    <string name="ARD_still">Still</string>
+    <string name="ARD_tilting">Tilting</string>
+    <string name="ARD_walking">Walking</string>
+    <string name="ARD_unknown">Unknown</string>
+    <string name="ARD_unknown_activity">Unknown type of activity</string>
+    <string name="ARD_confidence">confidence level:</string>
+    <string name="ARD_wait_data">Waiting for data</string>
+    <string name="ARD_detailed_activity_list">Detailed activity list:</string>
+    <string name="ARD_log">Most probable activities log:</string>
+    <string name="ARD_interval">Measurement interval:</string>
     <string name="title_activity_flp">FLPActivity</string>
 
     <string name="hello_world">Hello world!</string>

@@ -85,12 +85,9 @@ public class MainActivity extends ActionBarActivity {
         final Button button  = (Button) findViewById(R.id.buttonACR);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View arg0) {
-
-                //Intent intent = new Intent(MainActivity.this, ReceiptActivity.class);
-                //intent.putExtra(MESSAGE, text);
-                //intent.putExtra(PRICE, String.valueOf(total)+ "0" + "€");
-                //startActivity(intent);
+            public void onClick(View v) {
+                Intent acrIntent    =   new Intent(MainActivity.this,ActivityRecognitionMain.class);
+                startActivity(acrIntent);
             }
         });
     }

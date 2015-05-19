@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.mobileprogramming.ragnarok.googleplayservices.MainActivity" />
         </activity>
+        <activity
+            android:name=".ActivityRecognitionMain"
+            android:label="@string/ARD_app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <service
+            android:name=".ActivityRecognitionIntentService"
+            />
     </application>
 
 </manifest>
