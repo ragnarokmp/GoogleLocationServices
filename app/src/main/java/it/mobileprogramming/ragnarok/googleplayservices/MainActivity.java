@@ -1,5 +1,6 @@
 package it.mobileprogramming.ragnarok.googleplayservices;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,10 +35,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View arg0) {
 
-                //Intent intent = new Intent(MainActivity.this, ReceiptActivity.class);
-                //intent.putExtra(MESSAGE, text);
-                //intent.putExtra(PRICE, String.valueOf(total)+ "0" + "€");
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, FLPActivity.class);
+                startActivity(intent);
             }
         });
     }

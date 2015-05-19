@@ -6,4 +6,7 @@
     <string name="main_geo_title">Geofencing API</string>
     <string name="main_pla_title">Places API</string>
     <string name="main_acr_title">Activity Recognition</string>
+    <string name="title_activity_flp">FLPActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
