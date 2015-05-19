@@ -24,6 +24,4 @@
     <string name="ARD_log">Most probable activities log:</string>
     <string name="ARD_interval">Measurement interval:</string>
     <string name="title_activity_flp">FLPActivity</string>
-
-    <string name="hello_world">Hello world!</string>
 </resources>
