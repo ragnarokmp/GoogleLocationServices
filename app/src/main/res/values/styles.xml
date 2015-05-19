@@ -3,6 +3,19 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">#da4057</item>
+        <item name="colorControlNormal">#da4057</item>
+        <item name="colorControlActivated">#da4057</item>
+        <item name="colorControlHighlight">#da4057</item>
+    </style>
+
+    <!-- ##### Main activity button ##### -->
+    <style name="GPSMainButton">
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#da4057</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
 </resources>
