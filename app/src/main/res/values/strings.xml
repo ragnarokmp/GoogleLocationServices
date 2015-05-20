@@ -39,6 +39,8 @@
     <string name="FLP_latitude_label">Latitude</string>
     <string name="FLP_longitude_label">Longitude</string>
     <string name="FLP_no_location_detected">No location detected, please check you settings</string>
+    <string name="FLP_introduction">The Fused Location Provider intelligently manages the underlying location technology and gives you the best location according to your needs.</string>
+    <string name="FLP_last_location_introduction">Implementation of getLastLocation(GoogleApiClient client). Returns the best most recent location currently available.</string>
 
     <string name="hello_world">Hello world!</string>
 

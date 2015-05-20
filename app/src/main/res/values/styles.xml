@@ -3,10 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#da4057</item>
-        <item name="colorControlNormal">#da4057</item>
-        <item name="colorControlActivated">#da4057</item>
-        <item name="colorControlHighlight">#da4057</item>
+        <item name="colorPrimary">@color/bordeaux</item>
+        <item name="colorControlNormal">@color/bordeaux</item>
+        <item name="colorControlActivated">@color/bordeaux</item>
+        <item name="colorControlHighlight">@color/bordeaux</item>
     </style>
 
     <!-- ##### Main activity button ##### -->
@@ -14,12 +14,30 @@
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">#da4057</item>
+        <item name="android:background">@color/bordeaux</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="ARD_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!-- ##### FLP activity textView ##### -->
+    <style name="FLPTextView">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/bordeaux</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <!-- ##### FLP activity textView field ##### -->
+    <style name="FLPTextViewField">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
 
 </resources>
