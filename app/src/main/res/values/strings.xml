@@ -1,11 +1,16 @@
 <resources>
+
     <string name="app_name">Google Play Services</string>
     <string name="action_settings">Settings</string>
+
     <string name="main_title">Google Play Services Demo team Ragnarok</string>
     <string name="main_flp_title">Fused Location Provider</string>
     <string name="main_geo_title">Geofencing API</string>
     <string name="main_pla_title">Places API</string>
     <string name="main_acr_title">Activity Recognition</string>
+
+    <!-- ARD Strings -->
+
     <string name="ARD_app_name">ActivityRecognitionDemo</string>
     <string name="ARD_action_settings">Settings</string>
     <string name="ARD_most_probable">Most probable activity:</string>
@@ -23,4 +28,24 @@
     <string name="ARD_detailed_activity_list">Detailed activity list:</string>
     <string name="ARD_log">Most probable activities log:</string>
     <string name="ARD_interval">Measurement interval:</string>
+
+    <!-- FLP Strings -->
+
+    <string name="FLP_title_activity">Fused Location Provider</string>
+    <string name="FLP_last_location">Last location known by the system</string>
+    <string name="FLP_request_location_l">Resquest Location by Listeners</string>
+    <string name="FLP_request_location_p">Resquest Location by PendingIntent</string>
+    <string name="FLP_activity_last_location">FLP Last Location</string>
+    <string name="FLP_latitude_label">Latitude</string>
+    <string name="FLP_longitude_label">Longitude</string>
+    <string name="FLP_timeupdate_label">Timestamp</string>
+    <string name="FLP_no_location_detected">No location detected, please check you settings</string>
+    <string name="FLP_introduction">The Fused Location Provider intelligently manages the underlying location technology and gives you the best location according to your needs.</string>
+    <string name="FLP_last_location_introduction">Implementation of getLastLocation(GoogleApiClient client). Returns the best most recent location currently available.</string>
+    <string name="FLP_title_activity_flpactivity_location_listeners">FLP Location Listeners</string>
+    <string name="FLP_location_listeners_introduction">Implementation of LocationListeners. Used for receiving notifications from the LocationManager when the location has changed.</string>
+    <string name="FLP_pending_intent_introduction">Implementation of PendingIntent. Used for receiving notifications from the LocationManager when the location has changed and the application is in background.</string>
+    <string name="FLP_title_activity_flpactivity_location_pending_intent">FLP Pending Intent</string>
+    <string name="FLP_intent_service_started">Pending Intent started successfully</string>
+
 </resources>

@@ -35,10 +35,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View arg0) {
 
-                //Intent intent = new Intent(MainActivity.this, ReceiptActivity.class);
-                //intent.putExtra(MESSAGE, text);
-                //intent.putExtra(PRICE, String.valueOf(total)+ "0" + "€");
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, FLPActivityMain.class);
+                startActivity(intent);
             }
         });
     }
