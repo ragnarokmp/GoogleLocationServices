@@ -1,0 +1,61 @@
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="@string/FLP_pending_intent_introduction"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                style="@style/FLPTextView"
+                android:id="@+id/latitude_label"
+                android:text="@string/FLP_latitude_label" />
+
+            <TextView
+                style="@style/FLPTextViewField"
+                android:id="@+id/latitude_text"
+                android:textIsSelectable="true" />
+
+            <TextView
+                style="@style/FLPTextView"
+                android:id="@+id/longitude_label"
+                android:text="@string/FLP_longitude_label" />
+
+            <TextView
+                style="@style/FLPTextViewField"
+                android:id="@+id/longitude_text"
+                android:textIsSelectable="true" />
+
+            <TextView
+                style="@style/FLPTextView"
+                android:id="@+id/timeupdate_label"
+                android:text="@string/FLP_timeupdate_label" />
+
+            <TextView
+                style="@style/FLPTextViewField"
+                android:id="@+id/timeupdate_text"
+                android:textIsSelectable="true" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -44,5 +44,8 @@
     <string name="FLP_last_location_introduction">Implementation of getLastLocation(GoogleApiClient client). Returns the best most recent location currently available.</string>
     <string name="FLP_title_activity_flpactivity_location_listeners">FLP Location Listeners</string>
     <string name="FLP_location_listeners_introduction">Implementation of LocationListeners. Used for receiving notifications from the LocationManager when the location has changed.</string>
+    <string name="FLP_pending_intent_introduction">Implementation of PendingIntent. Used for receiving notifications from the LocationManager when the location has changed and the application is in background.</string>
+    <string name="FLP_title_activity_flpactivity_location_pending_intent">FLP Pending Intent</string>
+    <string name="FLP_intent_service_started">Pending Intent started successfully</string>
 
 </resources>

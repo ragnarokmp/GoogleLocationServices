@@ -16,6 +16,7 @@ public class FLPActivityMain extends ActionBarActivity {
 
         flpLastLocationActivity();
         flpLocationListenersActivity();
+        flpPendingIntentActivity();
     }
 
     /**
@@ -35,7 +36,7 @@ public class FLPActivityMain extends ActionBarActivity {
     }
 
     /**
-     * Start Activity for request location by listeners
+     * Start Activity for request location by LocationListeners
      * */
     public void flpLocationListenersActivity() {
 
@@ -45,6 +46,22 @@ public class FLPActivityMain extends ActionBarActivity {
             public void onClick(View arg0) {
 
                 Intent intent = new Intent(FLPActivityMain.this, FLPActivityLocationListeners.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * Start Activity for request location by PendingIntent
+     * */
+    public void flpPendingIntentActivity() {
+
+        final Button button  = (Button) findViewById(R.id.buttonPendingIntent);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(FLPActivityMain.this, FLPActivityLocationPendingIntent.class);
                 startActivity(intent);
             }
         });

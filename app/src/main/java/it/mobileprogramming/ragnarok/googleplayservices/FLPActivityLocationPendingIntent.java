@@ -1,6 +1,12 @@
 package it.mobileprogramming.ragnarok.googleplayservices;
 
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.Location;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,16 +16,14 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class FLPActivityLocationListeners extends ActionBarActivity implements
+public class FLPActivityLocationPendingIntent extends ActionBarActivity implements
         GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener{
+        GoogleApiClient.OnConnectionFailedListener {
 
     protected static final String TAG = "FLP-location-listeners";
 
@@ -33,6 +37,7 @@ public class FLPActivityLocationListeners extends ActionBarActivity implements
     protected TextView timeUpdateText;
 
     LocationRequest mLocationRequest;
+    private FLPBroadcastReceiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +88,16 @@ public class FLPActivityLocationListeners extends ActionBarActivity implements
         mLocationRequest.setInterval(1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
-        // Register for location updates
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+        Intent anIntent = new Intent(this, FLPIntentService.class);
+        anIntent.setAction(Intent.ACTION_SEND);
+
+        PendingIntent aPendingIntent = PendingIntent.getService(this, 0, anIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        //Register pending intent to LocationServices
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, aPendingIntent);
+
+        Log.d(TAG, "Pending Intent registered");
+
     }
 
     @Override
@@ -103,19 +116,50 @@ public class FLPActivityLocationListeners extends ActionBarActivity implements
         mGoogleApiClient.connect();
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
+    /**
+     * Intent
+     * */
 
-        // Show location information
+    //restores the intent receiving
+    public void onResume(){
+        super.onResume();
 
-        Log.i(TAG, "Received a new location " + location);
+        receiver =   new FLPBroadcastReceiver();
+        LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter(Constants.FLD_IDENTIFIER));
 
-        SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-        String format = s.format(new Date());
-
-        mLatitudeText.setText(String.valueOf(location.getLatitude()));
-        mLongitudeText.setText(String.valueOf(location.getLongitude()));
-        timeUpdateText.setText(format);
+        Log.i(TAG, "Registered for IntentFilter");
     }
 
+    //suspends the intent receiving
+    public void onPause(){
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(this.receiver);
+        super.onPause();
+    }
+
+    //private class, manages the intents coming from FLPIntentService
+    public class FLPBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            Log.i(TAG, "onReceive intent");
+
+            // handle the intent
+            String action = intent.getAction();
+            Log.i(TAG, "Intent action: " + action);
+
+            if (Intent.ACTION_SEND.equals(action)) {
+
+                //Get intent sent by onHandleIntent
+                Location location = intent.getParcelableExtra(Constants.FLD_INTENT);
+
+                SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                String format = s.format(new Date());
+
+                mLatitudeText.setText(String.valueOf(location.getLatitude()));
+                mLongitudeText.setText(String.valueOf(location.getLongitude()));
+                timeUpdateText.setText(format);
+            }
+        }
+    }
 }
