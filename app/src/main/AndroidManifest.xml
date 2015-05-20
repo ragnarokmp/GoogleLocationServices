@@ -43,6 +43,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.mobileprogramming.ragnarok.googleplayservices.FLPActivityMain" />
         </activity>
+        <activity
+            android:name=".FLPActivityLocationListeners"
+            android:label="@string/FLP_title_activity_flpactivity_location_listeners"
+            android:parentActivityName=".FLPActivityMain" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.mobileprogramming.ragnarok.googleplayservices.FLPActivityMain" />
+        </activity>
     </application>
 
 </manifest>

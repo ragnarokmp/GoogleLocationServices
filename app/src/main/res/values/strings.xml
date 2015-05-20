@@ -38,10 +38,11 @@
     <string name="FLP_activity_last_location">FLP Last Location</string>
     <string name="FLP_latitude_label">Latitude</string>
     <string name="FLP_longitude_label">Longitude</string>
+    <string name="FLP_timeupdate_label">Timestamp</string>
     <string name="FLP_no_location_detected">No location detected, please check you settings</string>
     <string name="FLP_introduction">The Fused Location Provider intelligently manages the underlying location technology and gives you the best location according to your needs.</string>
     <string name="FLP_last_location_introduction">Implementation of getLastLocation(GoogleApiClient client). Returns the best most recent location currently available.</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="FLP_title_activity_flpactivity_location_listeners">FLP Location Listeners</string>
+    <string name="FLP_location_listeners_introduction">Implementation of LocationListeners. Used for receiving notifications from the LocationManager when the location has changed.</string>
 
 </resources>

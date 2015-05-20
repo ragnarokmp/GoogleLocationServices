@@ -17,7 +17,7 @@
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:text="@string/FLP_last_location_introduction"
+                android:text="@string/FLP_location_listeners_introduction"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="16dp"
@@ -42,6 +42,16 @@
             <TextView
                 style="@style/FLPTextViewField"
                 android:id="@+id/longitude_text"
+                android:textIsSelectable="true" />
+
+            <TextView
+                style="@style/FLPTextView"
+                android:id="@+id/timeupdate_label"
+                android:text="@string/FLP_timeupdate_label" />
+
+            <TextView
+                style="@style/FLPTextViewField"
+                android:id="@+id/timeupdate_text"
                 android:textIsSelectable="true" />
 
         </LinearLayout>

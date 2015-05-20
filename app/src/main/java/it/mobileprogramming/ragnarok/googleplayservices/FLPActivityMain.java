@@ -15,6 +15,7 @@ public class FLPActivityMain extends ActionBarActivity {
         setContentView(R.layout.activity_flp);
 
         flpLastLocationActivity();
+        flpLocationListenersActivity();
     }
 
     /**
@@ -28,6 +29,22 @@ public class FLPActivityMain extends ActionBarActivity {
             public void onClick(View arg0) {
 
                 Intent intent = new Intent(FLPActivityMain.this, FLPActivityLastLocation.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * Start Activity for request location by listeners
+     * */
+    public void flpLocationListenersActivity() {
+
+        final Button button  = (Button) findViewById(R.id.buttonListener);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(FLPActivityMain.this, FLPActivityLocationListeners.class);
                 startActivity(intent);
             }
         });
