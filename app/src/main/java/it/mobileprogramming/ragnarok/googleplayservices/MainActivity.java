@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View arg0) {
 
-                Intent intent = new Intent(MainActivity.this, FLPActivity.class);
+                Intent intent = new Intent(MainActivity.this, FLPActivityMain.class);
                 startActivity(intent);
             }
         });

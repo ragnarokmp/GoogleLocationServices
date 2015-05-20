@@ -1,11 +1,14 @@
 <resources>
+
     <string name="app_name">Google Play Services</string>
     <string name="action_settings">Settings</string>
+
     <string name="main_title">Google Play Services Demo team Ragnarok</string>
     <string name="main_flp_title">Fused Location Provider</string>
     <string name="main_geo_title">Geofencing API</string>
     <string name="main_pla_title">Places API</string>
     <string name="main_acr_title">Activity Recognition</string>
+
     <string name="ARD_app_name">ActivityRecognitionDemo</string>
     <string name="ARD_action_settings">Settings</string>
     <string name="ARD_most_probable">Most probable activity:</string>
@@ -23,5 +26,7 @@
     <string name="ARD_detailed_activity_list">Detailed activity list:</string>
     <string name="ARD_log">Most probable activities log:</string>
     <string name="ARD_interval">Measurement interval:</string>
+
     <string name="title_activity_flp">FLPActivity</string>
+
 </resources>
