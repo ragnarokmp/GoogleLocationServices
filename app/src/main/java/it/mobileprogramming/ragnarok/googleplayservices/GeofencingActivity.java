@@ -33,6 +33,9 @@ public class GeofencingActivity extends ActionBarActivity implements GoogleApiCl
     protected Location mLocation;
     protected ArrayList<Geofence> mGeofences = new ArrayList<>();
 
+    // just for "toast" purposes
+    protected boolean removed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +102,8 @@ public class GeofencingActivity extends ActionBarActivity implements GoogleApiCl
 
     // this method will be called on geofenceAdd button to add a geofence around the position just retrieved
     public void geofenceAdd(View view) {
+        removed = false;
+
         if (mLocation == null) {
             Toast.makeText(this, this.getResources().getString(R.string.GEO_notLocation), Toast.LENGTH_LONG).show();
             return;
@@ -141,6 +146,8 @@ public class GeofencingActivity extends ActionBarActivity implements GoogleApiCl
 
     // this method will suspend the geofence monitoring
     public void geofenceRemove(View view) {
+        removed = true;
+
         if (mGoogleApiClient != null) {
             LocationServices.GeofencingApi.removeGeofences(
                     mGoogleApiClient,
@@ -170,12 +177,12 @@ public class GeofencingActivity extends ActionBarActivity implements GoogleApiCl
 
     // the callback handler method
     public void onResult(Status status) {
-        if (status.isSuccess()) {
+        if (status.isSuccess() && !removed) {
             Log.i(Constants.GEO_TAG, "Geofence added successfully");
             Toast.makeText(this, this.getResources().getString(R.string.GEO_added), Toast.LENGTH_LONG).show();
         }
 
-        if (status.isSuccess()) {
+        if (status.isSuccess() && removed) {
             Log.i(Constants.GEO_TAG, "Geofence removed successfully");
             Toast.makeText(this, this.getResources().getString(R.string.GEO_removed), Toast.LENGTH_LONG).show();
         }
