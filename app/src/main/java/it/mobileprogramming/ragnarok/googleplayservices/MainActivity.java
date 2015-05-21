@@ -52,11 +52,8 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
-                //Intent intent = new Intent(MainActivity.this, ReceiptActivity.class);
-                //intent.putExtra(MESSAGE, text);
-                //intent.putExtra(PRICE, String.valueOf(total)+ "0" + "€");
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, GeofencingActivity.class);
+                startActivity(intent);
             }
         });
     }

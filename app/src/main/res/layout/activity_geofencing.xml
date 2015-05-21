@@ -1,0 +1,143 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="it.mobileprogramming.ragnarok.googleplayservices.GeofencingActivity">
+
+        <TextView
+            android:id="@+id/latitudeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/GEO_textView_height"
+            android:layout_margin="@dimen/GEO_textView_margin"
+            android:gravity="center"
+            android:textSize="@dimen/GEO_textView_fontSize"
+            android:textColor="#da4057"
+            android:text="@string/GEO_latitude"
+            />
+
+        <TextView
+            android:id="@+id/longitudeTextView"
+            android:layout_below="@id/latitudeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/GEO_textView_height"
+            android:layout_margin="@dimen/GEO_textView_margin"
+            android:gravity="center"
+            android:textSize="@dimen/GEO_textView_fontSize"
+            android:textColor="#da4057"
+            android:text="@string/GEO_longitude"
+            />
+
+        <Button
+            android:id="@+id/retrieveLocButton"
+            android:layout_below="@id/longitudeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/GEO_button_height"
+            android:layout_margin="@dimen/GEO_textView_margin"
+            android:background="#da4057"
+            android:textColor="@android:color/white"
+            android:text="@string/GEO_retrieveLoc"
+
+            android:onClick="retrieveLocation"
+            />
+
+        <TextView
+            android:id="@+id/perimeterSeekBarTextView"
+            android:layout_below="@id/retrieveLocButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/GEO_geofence_marginTop"
+            android:textColor="#da4057"
+            android:text="@string/GEO_perimeter"/>
+
+        <SeekBar
+            android:id="@+id/perimeterSeekBar"
+            android:layout_below="@+id/perimeterSeekBarTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="100"
+            android:max="450" >
+        </SeekBar>
+
+        <TextView
+            android:layout_below="@id/perimeterSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="50" />
+
+        <TextView
+            android:layout_below="@id/perimeterSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:text="500" />
+
+
+        <TextView
+            android:id="@+id/durationSeekBarTextView"
+            android:layout_below="@id/perimeterSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/GEO_geofence_marginTop"
+            android:textColor="#da4057"
+            android:text="@string/GEO_duration"/>
+
+        <SeekBar
+            android:id="@+id/durationSeekBar"
+            android:layout_below="@+id/durationSeekBarTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="10"
+            android:max="50" >
+        </SeekBar>
+
+        <TextView
+            android:layout_below="@id/durationSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="10" />
+
+        <TextView
+            android:layout_below="@id/durationSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:text="60" />
+
+
+        <Button
+            android:id="@+id/geofenceButton"
+            android:layout_below="@id/durationSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/GEO_button_height"
+            android:layout_marginRight="@dimen/GEO_textView_margin"
+            android:layout_marginLeft="@dimen/GEO_textView_margin"
+            android:layout_marginTop="@dimen/GEO_geofence_marginTop"
+            android:background="#da4057"
+            android:textColor="@android:color/white"
+            android:text="@string/GEO_addGeofence"
+
+            android:onClick="geofenceAdd"
+            />
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
+

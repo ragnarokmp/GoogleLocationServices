@@ -23,4 +23,14 @@
     <string name="ARD_detailed_activity_list">Detailed activity list:</string>
     <string name="ARD_log">Most probable activities log:</string>
     <string name="ARD_interval">Measurement interval:</string>
+    <string name="GEO_latitude">retrieve latitude</string>
+    <string name="GEO_longitude">retrieve longitude</string>
+    <string name="GEO_retrieveLoc">RETRIEVE LOCATION</string>
+    <string name="GEO_perimeter">geofence\'s perimeter (meters)</string>
+    <string name="GEO_duration">geofence\'s expiration (minutes)</string>
+    <string name="GEO_addGeofence">ADD GEOFENCE</string>
+    <string name="GEO_notAPI">No GoogleAPI connection available!</string>
+    <string name="GEO_notLocation">No location has been retrieved yet!</string>
+    <string name="GEO_added">Geofence added successfully!</string>
+
 </resources>

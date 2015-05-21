@@ -2,4 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="GEO_textView_height">25dp</dimen>
+    <dimen name="GEO_textView_margin">20dp</dimen>
+    <dimen name="GEO_textView_fontSize">20sp</dimen>
+    <dimen name="GEO_button_height">35dp</dimen>
+    <dimen name="GEO_geofence_marginTop">40dp</dimen>
 </resources>
