@@ -34,6 +34,9 @@
             android:name=".ActivityRecognitionMain"
             android:label="@string/ARD_app_name"
             android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.mobileprogramming.ragnarok.googleplayservices.MainActivity" />
         </activity>
 
         <activity
