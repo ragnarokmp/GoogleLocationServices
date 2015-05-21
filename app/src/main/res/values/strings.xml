@@ -11,7 +11,7 @@
 
     <!-- ARD Strings -->
 
-    <string name="ARD_app_name">ActivityRecognitionDemo</string>
+    <string name="ARD_app_name">Activity Recognition</string>
     <string name="ARD_action_settings">Settings</string>
     <string name="ARD_most_probable">Most probable activity:</string>
     <string name="ARD_in_vehicle">In a vehicle</string>
