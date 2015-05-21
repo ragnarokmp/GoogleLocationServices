@@ -118,6 +118,8 @@ public class GeofencingActivity extends AppCompatActivity implements GoogleApiCl
                                                                     + Constants.GEOFENCE_MINDWELLING_MILLI;
 
         // check for maximum (100) geofences available per device
+        // (we are supposing that this app is the only geofence monitor actually activated)
+        // in a real application utilization scenario please check for the real user needs
         if (mGeofences.size() == Constants.GEO_MAX_INSTANCES)
             mGeofences.clear();
 
