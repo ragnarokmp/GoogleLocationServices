@@ -38,11 +38,9 @@
             />
 
         <Button
+            style="@style/GPSMainButton"
             android:id="@+id/retrieveLocButton"
             android:layout_below="@id/longitudeTextView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/GEO_button_height"
-            android:layout_margin="@dimen/GEO_textView_margin"
             android:background="#da4057"
             android:textColor="@android:color/white"
             android:text="@string/GEO_retrieveLoc"
@@ -61,7 +59,7 @@
 
         <SeekBar
             android:id="@+id/perimeterSeekBar"
-            android:layout_below="@+id/perimeterSeekBarTextView"
+            android:layout_below="@id/perimeterSeekBarTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:progress="100"
@@ -96,7 +94,7 @@
 
         <SeekBar
             android:id="@+id/durationSeekBar"
-            android:layout_below="@+id/durationSeekBarTextView"
+            android:layout_below="@id/durationSeekBarTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:progress="10"
@@ -120,19 +118,64 @@
             android:text="60" />
 
 
-        <Button
-            android:id="@+id/geofenceButton"
+        <TextView
+            android:id="@+id/dwellingSeekBarTextView"
             android:layout_below="@id/durationSeekBar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/GEO_button_height"
-            android:layout_marginRight="@dimen/GEO_textView_margin"
-            android:layout_marginLeft="@dimen/GEO_textView_margin"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/GEO_geofence_marginTop"
+            android:textColor="#da4057"
+            android:text="@string/GEO_dwelling"/>
+
+        <SeekBar
+            android:id="@+id/dwellingSeekBar"
+            android:layout_below="@id/dwellingSeekBarTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="5"
+            android:max="14" >
+        </SeekBar>
+
+        <TextView
+            android:layout_below="@id/dwellingSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="1" />
+
+        <TextView
+            android:layout_below="@id/dwellingSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:text="15" />
+
+
+
+
+        <Button
+            android:id="@+id/geofenceButton"
+            style="@style/GPSMainButton"
+            android:layout_below="@id/dwellingSeekBar"
             android:layout_marginTop="@dimen/GEO_geofence_marginTop"
             android:background="#da4057"
             android:textColor="@android:color/white"
             android:text="@string/GEO_addGeofence"
 
             android:onClick="geofenceAdd"
+            />
+
+        <Button
+            android:id="@+id/geofenceRemoveButton"
+            style="@style/GPSMainButton"
+            android:layout_below="@id/geofenceButton"
+            android:background="#da4057"
+            android:textColor="@android:color/white"
+            android:text="@string/GEO_removeGeofence"
+
+            android:onClick="geofenceRemove"
             />
 
 

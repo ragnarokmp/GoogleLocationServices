@@ -36,11 +36,16 @@
     <string name="GEO_retrieveLoc">RETRIEVE LOCATION</string>
     <string name="GEO_perimeter">geofence\'s perimeter (meters)</string>
     <string name="GEO_duration">geofence\'s expiration (minutes)</string>
+    <string name="GEO_dwelling">geofence\'s dwelling period (minutes)</string>
     <string name="GEO_addGeofence">ADD GEOFENCE</string>
     <string name="GEO_notAPI">No GoogleAPI connection available!</string>
     <string name="GEO_notLocation">No location has been retrieved yet!</string>
     <string name="GEO_added">Geofence added successfully!</string>
-
+    <string name="GEO_removeGeofence">REMOVE GEOFENCE</string>
+    <string name="GEO_removed">Geofence monitoring has been stopped!</string>
+    <string name="GEO_alert_enter">ENTERED</string>
+    <string name="GEO_alert_exit">EXITED</string>
+    <string name="GEO_alert_dwell">DWELLING</string>
 
     <!-- FLP Strings -->
 
