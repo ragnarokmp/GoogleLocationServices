@@ -3,8 +3,8 @@ package it.mobileprogramming.ragnarok.googleplayservices;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.location.Location;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 /**
  * This class defines the behaviour of the activity used to launch and manage the geofence monitoring
  */
-public class GeofencingActivity extends ActionBarActivity implements GoogleApiClient.ConnectionCallbacks,
+public class GeofencingActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status>{
 
     protected GoogleApiClient mGoogleApiClient;

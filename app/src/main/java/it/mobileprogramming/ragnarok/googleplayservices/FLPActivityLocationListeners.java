@@ -1,8 +1,8 @@
 package it.mobileprogramming.ragnarok.googleplayservices;
 
 import android.location.Location;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class FLPActivityLocationListeners extends ActionBarActivity implements
+public class FLPActivityLocationListeners extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener{
