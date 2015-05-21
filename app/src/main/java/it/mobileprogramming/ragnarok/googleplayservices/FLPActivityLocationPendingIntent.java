@@ -43,7 +43,7 @@ public class FLPActivityLocationPendingIntent extends ActionBarActivity implemen
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flpactivity_location_listeners);
+        setContentView(R.layout.activity_flpactivity_location_pending_intent);
 
         mLatitudeText = (TextView) findViewById((R.id.latitude_text));
         mLongitudeText = (TextView) findViewById((R.id.longitude_text));
@@ -147,12 +147,11 @@ public class FLPActivityLocationPendingIntent extends ActionBarActivity implemen
             // handle the intent
             String action = intent.getAction();
             Log.i(TAG, "Intent action: " + action);
-
-            if (Intent.ACTION_SEND.equals(action)) {
+            if (intent.hasExtra(Constants.FLD_INTENT)) {
 
                 //Get intent sent by onHandleIntent
                 Location location = intent.getParcelableExtra(Constants.FLD_INTENT);
-
+                Log.i(TAG, "Letta location: " + location);
                 SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
                 String format = s.format(new Date());
 

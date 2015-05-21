@@ -35,7 +35,6 @@ public class FLPIntentService extends IntentService {
             Log.d(TAG, "Location! " + location.toString());
 
             Intent myIntent = new Intent(Constants.FLD_IDENTIFIER);
-            myIntent.setAction(Intent.ACTION_SEND);
             myIntent.putExtra(Constants.FLD_INTENT, location);
 
             boolean result = LocalBroadcastManager.getInstance(this).sendBroadcast(myIntent);
