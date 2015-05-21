@@ -37,8 +37,11 @@ public class GeofenceTransitionsIntentService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         GeofencingEvent geofencingEvent = GeofencingEvent.fromIntent(intent);
         if (geofencingEvent.hasError()) {
+            // in case of error in geofencing event let us notify the user in order
+            // to stop the geofence monitoring in the worst case of all
             String errorMessage = String.valueOf(geofencingEvent.getErrorCode());
             Log.e(Constants.GEO_TRANSITION_SERVICE_TAG, errorMessage);
+            sendNotification(Constants.GEO_TRANSITION_SERVICE_TAG + errorMessage);
             return;
         }
 
