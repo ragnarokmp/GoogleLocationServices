@@ -55,4 +55,18 @@
     <string name="FLP_title_activity_flpactivity_location_listeners">FLP Location Listeners</string>
     <string name="FLP_title_activity_flpactivity_location_pending_intent">FLP Pending Intent</string>
     <string name="GEO_alert_unknown">SCONOSCIUTA</string>
+    <string name="PLA_addButton">Aggiungi Nuovo Place</string>
+    <string name="PLA_addPlaceButton">Aggiungi Place</string>
+    <string name="PLA_coordPicker">Ottieni Coordinate</string>
+    <string name="PLA_intro">Qui puoi provare le tre principali funzioni offerte da Google Places API attraverso il PlacePicker UI Widget, l\'addPlace di GeoDataPai e getDeviceAtPlace di PlaceDetectionApi</string>
+    <string name="PLA_newLatitude">Latitudine</string>
+    <string name="PLA_newLongitude">Longitudine</string>
+    <string name="PLA_newPlaceAddress">Indirizzo Nuovo Place</string>
+    <string name="PLA_newPlaceName">Nome Nuovo Place</string>
+    <string name="PLA_pickerButton">Place Picker</string>
+    <string name="PLA_reportPlaceButton">Riporta Place</string>
+    <string name="PLA_title">Google Place API</string>
+    <string name="title_activity_add_place">Funzione Add Place</string>
+    <string name="title_activity_places_main">Places API</string>
+    <string name="title_activity_report_place">Funzione Report Place</string>
 </resources>

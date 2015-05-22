@@ -65,19 +65,30 @@
     <string name="FLP_pending_intent_introduction">Implementation of PendingIntent. Used for receiving notifications from the LocationManager when the location has changed and the application is in background.</string>
     <string name="FLP_title_activity_flpactivity_location_pending_intent">FLP Pending Intent</string>
     <string name="FLP_intent_service_started" translatable="false">Pending Intent started successfully</string>
-    <string name="title_activity_places_main">PlacesMainActivity</string>
+    <string name="title_activity_places_main">Places API</string>
 
     <!-- PLA Strings -->
 
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="PLA_title">Google Place API</string>
-    <string name="PLA_intro">Here you can try three main functionality offered by Google Places API through PlacePicker UI Widget, GeoDataApi addPlace and PlaceDetection getDeviceAtPlace() </string>
+    <string name="PLA_intro">Here you can try three main functionality offered by Google Places API through PlacePicker UI Widget, GeoDataApi addPlace and PlaceDetectionApi getDeviceAtPlace()</string>
     <string name="PLA_pickerButton">Place Picker</string>
     <string name="PLA_reportPlaceButton">Report Place</string>
     <string name="PLA_addPlaceButton">Add Place</string>
-    <string name="title_activity_add_place">AddPlaceActivity</string>
-    <string name="title_activity_report_place">ReportPlaceActivity</string>
+    <string name="title_activity_add_place">Add Place Function</string>
+    <string name="title_activity_report_place">Report Place Function</string>
+    <string name="PLA_newPlaceName">New Place Name</string>
+    <string name="PLA_newPlaceAddress">New Place Address</string>
+    <string name="PLA_coordPicker">Pick Coordinates</string>
+    <string name="PLA_newLatitude">Latitude</string>
+    <string name="PLA_newLongitude">Longitude</string>
+    <string name="PLA_addButton">Add New Place</string>
     <string name="GEO_alert_unknown">UNKNOWN</string>
+    <string name="PLA_emptyNamePlace">Name Place</string>
+    <string name="PLA_emptyAddrPlace">Address Place</string>
+    <string name="PLA_emptyAttrPlace">Place Attributes</string>
+    <string name="PLA_emptyLatitude">Place Latitude</string>
+    <string name="PLA_emptyLongitude">Place Longitude</string>
 
 
 </resources>
