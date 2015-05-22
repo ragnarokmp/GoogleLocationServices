@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Google Play Services</string>
+    <string name="app_name">Google Location Services</string>
     <string name="action_settings">Impostazioni</string>
     <string name="main_flp_title">Fused Location Provider</string>
     <string name="main_geo_title">Geofencing API</string>
-    <string name="main_title">Google Play Services Demo team Ragnarok</string>
+    <string name="main_title">Google Location Services Demo team Ragnarok</string>
     <string name="main_pla_title">Places API</string>
     <string name="main_acr_title">Activity Recognition</string>
     <string name="ARD_action_settings">Impostazioni</string>
@@ -40,4 +40,18 @@
     <string name="GEO_removeGeofence">RIMUOVI GEOFENCE</string>
     <string name="GEO_removed">Monitoraggio geofence arrestato!</string>
     <string name="GEO_retrieveLoc">RECUPERA POSIZIONE</string>
+    <string name="FLP_introduction">Il Fused posizione Provider gestisce in modo intelligente la tecnologia di localizzazione e ti dà la posizione migliore in base alle tue esigenze.</string>
+    <string name="FLP_last_location">Ultima posizione conosciuta dal sistema</string>
+    <string name="FLP_last_location_introduction">Implementazione dell\'API getLastLocation(GoogleApiClient client). Ritorna l\'ultima posizione conosciuta dal sistema.</string>
+    <string name="FLP_latitude_label">Latitudine</string>
+    <string name="FLP_longitude_label">Longitudine</string>
+    <string name="FLP_location_listeners_introduction">Implementazione del LocationListeners. Utilizzato per ricevere le notifiche dal LocationManager quando la posizione è cambiata.</string>
+    <string name="FLP_no_location_detected">Nessuna posizione trovata, per favore controlla nelle impostazioni i parametri della localizzazione.</string>
+    <string name="FLP_pending_intent_introduction">Implementazione del PendingIntent. Utilizzato per ricevere le notifiche dal LocationManager quando la posizione è cambiata e mentre l\'applicazione è in background.</string>
+    <string name="FLP_request_location_l">Richiesta posizione tramite Listeners</string>
+    <string name="FLP_request_location_p">Richiesta posizione tramite PendingIntent</string>
+    <string name="FLP_timeupdate_label">Timestamp</string>
+    <string name="FLP_title_activity">Fused Lcation Provider</string>
+    <string name="FLP_title_activity_flpactivity_location_listeners">FLP Location Listeners</string>
+    <string name="FLP_title_activity_flpactivity_location_pending_intent">FLP Pending Intent</string>
 </resources>

@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //Hide action bar (Design reason)
-        //getSupportActionBar().hide();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         setContentView(R.layout.activity_main);
 
@@ -67,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View arg0) {
 
                 Intent intent = new Intent(MainActivity.this, PlacesMainActivity.class);
-                //intent.putExtra(MESSAGE, text);
-                //intent.putExtra(PRICE, String.valueOf(total)+ "0" + "€");
                 startActivity(intent);
             }
         });

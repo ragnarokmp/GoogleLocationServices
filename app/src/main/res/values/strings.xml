@@ -1,9 +1,9 @@
 <resources>
 
-    <string name="app_name">Google Play Services</string>
+    <string name="app_name">Google Location Services</string>
     <string name="action_settings">Settings</string>
 
-    <string name="main_title">Google Play Services Demo team Ragnarok</string>
+    <string name="main_title">Google Location Services Demo team Ragnarok</string>
     <string name="main_flp_title">Fused Location Provider</string>
     <string name="main_geo_title">Geofencing API</string>
     <string name="main_pla_title">Places API</string>
@@ -64,12 +64,12 @@
     <string name="FLP_location_listeners_introduction">Implementation of LocationListeners. Used for receiving notifications from the LocationManager when the location has changed.</string>
     <string name="FLP_pending_intent_introduction">Implementation of PendingIntent. Used for receiving notifications from the LocationManager when the location has changed and the application is in background.</string>
     <string name="FLP_title_activity_flpactivity_location_pending_intent">FLP Pending Intent</string>
-    <string name="FLP_intent_service_started">Pending Intent started successfully</string>
+    <string name="FLP_intent_service_started" translatable="false">Pending Intent started successfully</string>
     <string name="title_activity_places_main">PlacesMainActivity</string>
 
     <!-- PLA Strings -->
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
     <string name="PLA_title">Google Place API</string>
     <string name="PLA_intro">Here you can try three main functionality offered by Google Places API through PlacePicker UI Widget, GeoDataApi addPlace and PlaceDetection getDeviceAtPlace() </string>
     <string name="PLA_pickerButton">Place Picker</string>

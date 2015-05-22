@@ -110,7 +110,7 @@ public class FLPActivityLocationListeners extends AppCompatActivity implements
 
         Log.i(TAG, "Received a new location " + location);
 
-        SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+        SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy k:mm:ss");
         String format = s.format(new Date());
 
         mLatitudeText.setText(String.valueOf(location.getLatitude()));

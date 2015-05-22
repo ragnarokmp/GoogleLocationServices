@@ -152,7 +152,7 @@ public class FLPActivityLocationPendingIntent extends AppCompatActivity implemen
                 //Get intent sent by onHandleIntent
                 Location location = intent.getParcelableExtra(Constants.FLD_INTENT);
                 Log.i(TAG, "Letta location: " + location);
-                SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy k:mm:ss");
                 String format = s.format(new Date());
 
                 mLatitudeText.setText(String.valueOf(location.getLatitude()));

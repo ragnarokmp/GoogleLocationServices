@@ -32,13 +32,15 @@ public class FLPIntentService extends IntentService {
 
             Location location = intent.getParcelableExtra("com.google.android.location.LOCATION");
 
-            Log.d(TAG, "Location! " + location.toString());
+            if (location != null){
+                Log.d(TAG, "Location! " + location.toString());
 
-            Intent myIntent = new Intent(Constants.FLD_IDENTIFIER);
-            myIntent.putExtra(Constants.FLD_INTENT, location);
+                Intent myIntent = new Intent(Constants.FLD_IDENTIFIER);
+                myIntent.putExtra(Constants.FLD_INTENT, location);
 
-            boolean result = LocalBroadcastManager.getInstance(this).sendBroadcast(myIntent);
-            Log.i(TAG, "Sent intent to broadcast manager: " + result);
+                boolean result = LocalBroadcastManager.getInstance(this).sendBroadcast(myIntent);
+                Log.i(TAG, "Sent intent to broadcast manager: " + result);
+            }
         }
     }
 }
