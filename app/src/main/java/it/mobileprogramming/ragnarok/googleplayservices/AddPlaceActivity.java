@@ -3,8 +3,10 @@ package it.mobileprogramming.ragnarok.googleplayservices;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.places.AddPlaceRequest;
@@ -16,7 +18,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.Collections;
 
 
-public class AddPlaceActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks {
+public class AddPlaceActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -31,7 +33,7 @@ public class AddPlaceActivity extends AppCompatActivity implements GoogleApiClie
                 .addApi(Places.GEO_DATA_API)
                 .addApi(Places.PLACE_DETECTION_API)
                 .addConnectionCallbacks(this)
-                //.addOnConnectionFailedListener(this)
+                .addOnConnectionFailedListener(this)
                 .build();
     }
 
@@ -50,6 +52,8 @@ public class AddPlaceActivity extends AppCompatActivity implements GoogleApiClie
 
     @Override
     public void onConnected(Bundle bundle) {
+        Log.i(Constants.PLACE_TAG, "Connected to GoogleApiClient");
+
         AddPlaceRequest place = new AddPlaceRequest(
                         "Manly Sea Life Sanctuary", // Name
                         new LatLng(-33.7991, 151.2813), // Latitude and longitude
@@ -76,7 +80,14 @@ public class AddPlaceActivity extends AppCompatActivity implements GoogleApiClie
     }
 
     @Override
-    public void onConnectionSuspended(int i) {
+    public void onConnectionFailed(ConnectionResult result) {
+        Log.i(Constants.PLACE_TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
+    }
 
+    @Override
+    public void onConnectionSuspended(int cause) {
+        // The connection to Google Play services was lost for some reason.
+        Log.i(Constants.PLACE_TAG, "Connection suspended");
+        // onConnected() will be called again automatically when the service reconnects
     }
 }

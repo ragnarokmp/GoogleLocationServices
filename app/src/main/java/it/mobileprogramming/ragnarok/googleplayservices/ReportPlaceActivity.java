@@ -2,12 +2,14 @@ package it.mobileprogramming.ragnarok.googleplayservices;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ReportPlaceActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks {
+public class ReportPlaceActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     public static final String PLACEREPORT_REVIEW = "review";
     private GoogleApiClient mGoogleApiClient;
@@ -35,6 +37,7 @@ public class ReportPlaceActivity extends AppCompatActivity implements GoogleApiC
                 .addApi(Places.GEO_DATA_API)
                 .addApi(Places.PLACE_DETECTION_API)
                 .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
                 .build();
     }
 
@@ -53,6 +56,8 @@ public class ReportPlaceActivity extends AppCompatActivity implements GoogleApiC
 
     @Override
     public void onConnected(Bundle bundle) {
+        Log.i(Constants.PLACE_TAG, "Connected to GoogleApiClient");
+
         PendingResult<PlaceLikelihoodBuffer> result = Places.PlaceDetectionApi.getCurrentPlace(mGoogleApiClient, null);
         result.setResultCallback(new ResultCallback<PlaceLikelihoodBuffer>() {
             @Override
@@ -91,7 +96,14 @@ public class ReportPlaceActivity extends AppCompatActivity implements GoogleApiC
     }
 
     @Override
-    public void onConnectionSuspended(int i) {
+    public void onConnectionFailed(ConnectionResult result) {
+        Log.i(Constants.PLACE_TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
+    }
 
+    @Override
+    public void onConnectionSuspended(int cause) {
+        // The connection to Google Play services was lost for some reason.
+        Log.i(Constants.PLACE_TAG, "Connection suspended");
+        // onConnected() will be called again automatically when the service reconnects
     }
 }
