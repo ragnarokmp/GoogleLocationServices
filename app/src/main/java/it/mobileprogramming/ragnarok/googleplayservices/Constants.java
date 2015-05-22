@@ -25,4 +25,9 @@ public class Constants {
     public final static long GEOFENCE_MINRADIUS_METERS      =   50;             //Geofence min perimeter radius
     public final static int GEOFENCE_MINDWELLING_MILLI      =   1000*60;        //Gefeonce min dwelling duration
     public final static int GEO_MAX_INSTANCES               =   100;            //Max available geofences per device
+
+    /**
+     * Places
+     */
+    public final static String PLACE_TAG                    =   "PLACES";          //TAGs for debug purposes
 }

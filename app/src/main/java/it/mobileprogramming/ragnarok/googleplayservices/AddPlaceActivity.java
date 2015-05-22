@@ -3,8 +3,10 @@ package it.mobileprogramming.ragnarok.googleplayservices;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.places.AddPlaceRequest;
@@ -16,7 +18,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.Collections;
 
 
-public class AddPlaceActivity extends AppCompatActivity {
+public class AddPlaceActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -30,21 +32,39 @@ public class AddPlaceActivity extends AppCompatActivity {
                 .Builder(this)
                 .addApi(Places.GEO_DATA_API)
                 .addApi(Places.PLACE_DETECTION_API)
-                //.addConnectionCallbacks(this)
-                //.addOnConnectionFailedListener(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
                 .build();
+    }
 
-        AddPlaceRequest place =
-                new AddPlaceRequest(
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        mGoogleApiClient.disconnect();
+        super.onStop();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        Log.i(Constants.PLACE_TAG, "Connected to GoogleApiClient");
+
+        AddPlaceRequest place = new AddPlaceRequest(
                         "Manly Sea Life Sanctuary", // Name
                         new LatLng(-33.7991, 151.2813), // Latitude and longitude
                         "W Esplanade, Manly NSW 2095", // Address
                         Collections.singletonList(Place.TYPE_AQUARIUM), // Place types
                         "+61 1800 199 742", // Phone number
                         Uri.parse("http://www.manlysealifesanctuary.com.au/") // Website
-                );
+                        );
 
-        Places.GeoDataApi.addPlace(mGoogleApiClient, place)
+        Places.GeoDataApi
+                .addPlace(mGoogleApiClient, place)
                 .setResultCallback(new ResultCallback<PlaceBuffer>() {
                     @Override
                     public void onResult(PlaceBuffer places) {
@@ -59,16 +79,15 @@ public class AddPlaceActivity extends AppCompatActivity {
                 });
     }
 
-
     @Override
-    protected void onStart() {
-        super.onStart();
-        mGoogleApiClient.connect();
+    public void onConnectionFailed(ConnectionResult result) {
+        Log.i(Constants.PLACE_TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
     }
 
     @Override
-    protected void onStop() {
-        mGoogleApiClient.disconnect();
-        super.onStop();
+    public void onConnectionSuspended(int cause) {
+        // The connection to Google Play services was lost for some reason.
+        Log.i(Constants.PLACE_TAG, "Connection suspended");
+        // onConnected() will be called again automatically when the service reconnects
     }
 }
