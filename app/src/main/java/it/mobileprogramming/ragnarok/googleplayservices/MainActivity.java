@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                //Intent intent = new Intent(MainActivity.this, ReceiptActivity.class);
+                Intent intent = new Intent(MainActivity.this, PlacesMainActivity.class);
                 //intent.putExtra(MESSAGE, text);
                 //intent.putExtra(PRICE, String.valueOf(total)+ "0" + "€");
-                //startActivity(intent);
+                startActivity(intent);
             }
         });
     }

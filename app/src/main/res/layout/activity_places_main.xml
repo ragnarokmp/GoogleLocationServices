@@ -1,0 +1,76 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="it.mobileprogramming.ragnarok.googleplayservices.PlacesMainActivity">
+
+        <TextView
+            android:id="@+id/placesTitle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/GEO_textView_height"
+            android:layout_margin="@dimen/GEO_textView_margin"
+            android:gravity="center"
+            android:textSize="@dimen/GEO_textView_fontSize"
+            android:textColor="#da4057"
+            android:text="@string/PLA_title"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/PLA_intro"
+            android:id="@+id/PLA_intro"
+            android:layout_below="@+id/placesTitle"
+            android:gravity="center"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            style="@style/GPSMainButton"
+            android:id="@+id/placePickerButton"
+            android:background="#da4057"
+            android:textColor="@android:color/white"
+            android:text="@string/PLA_pickerButton"
+
+            android:onClick="retrieveLocation"
+            android:layout_below="@+id/PLA_intro"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            style="@style/GPSMainButton"
+            android:id="@+id/reportPlaceButton"
+            android:layout_below="@+id/placePickerButton"
+            android:background="#da4057"
+            android:textColor="@android:color/white"
+            android:text="@string/PLA_reportPlaceButton"
+
+            android:onClick="retrieveLocation"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            style="@style/GPSMainButton"
+            android:id="@+id/addPlaceButton"
+            android:layout_below="@+id/reportPlaceButton"
+            android:background="#da4057"
+            android:textColor="@android:color/white"
+            android:text="@string/PLA_addPlaceButton"
+
+            android:onClick="retrieveLocation"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+
+    </RelativeLayout>
+</ScrollView>
