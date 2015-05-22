@@ -19,7 +19,7 @@ public class Constants {
      * Geofencing
      */
     public final static String GEO_TAG                      =   "GEO";          //TAGs for debug purposes
-    public static final String GEO_TRANSITION_SERVICE_TAG   =   "geofencing-transition-intent-service";
+    public static final String GEO_TRANSITION_SERVICE_TAG   =   "geofencing-transition";
     public final static String GEO_IDENTIFIER               =   "GEOFENCE";     //ID for internal intent
     public final static long GEOFENCE_MINEXPIRATION_MILLI   =   1000*60*10;     //Geofence min expiration
     public final static long GEOFENCE_MINRADIUS_METERS      =   50;             //Geofence min perimeter radius

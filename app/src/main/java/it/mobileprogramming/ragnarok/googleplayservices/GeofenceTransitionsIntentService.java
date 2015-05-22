@@ -131,7 +131,7 @@ public class GeofenceTransitionsIntentService extends IntentService {
             case Geofence.GEOFENCE_TRANSITION_DWELL:
                 return res.getString(R.string.GEO_alert_dwell);
             default:
-                return "";
+                return res.getString(R.string.GEO_alert_unknown);
         }
     }
 }

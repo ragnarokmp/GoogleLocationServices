@@ -54,4 +54,5 @@
     <string name="FLP_title_activity">Fused Lcation Provider</string>
     <string name="FLP_title_activity_flpactivity_location_listeners">FLP Location Listeners</string>
     <string name="FLP_title_activity_flpactivity_location_pending_intent">FLP Pending Intent</string>
+    <string name="GEO_alert_unknown">SCONOSCIUTA</string>
 </resources>

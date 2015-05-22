@@ -77,6 +77,7 @@
     <string name="PLA_addPlaceButton">Add Place</string>
     <string name="title_activity_add_place">AddPlaceActivity</string>
     <string name="title_activity_report_place">ReportPlaceActivity</string>
+    <string name="GEO_alert_unknown">UNKNOWN</string>
 
 
 </resources>
