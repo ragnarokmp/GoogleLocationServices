@@ -40,4 +40,5 @@
     <string name="GEO_removeGeofence">RIMUOVI GEOFENCE</string>
     <string name="GEO_removed">Monitoraggio geofence arrestato!</string>
     <string name="GEO_retrieveLoc">RECUPERA POSIZIONE</string>
+    <string name="GEO_alert_unknown">SCONOSCIUTA</string>
 </resources>

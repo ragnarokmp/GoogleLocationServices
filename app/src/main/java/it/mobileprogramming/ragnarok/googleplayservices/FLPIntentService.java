@@ -12,7 +12,7 @@ import android.util.Log;
  */
 public class FLPIntentService extends IntentService {
 
-    protected static final String TAG = "FLP-location-IntentService";
+    protected static final String TAG = "Location-IntentService";
 
     /**
      * Creates an IntentService.
