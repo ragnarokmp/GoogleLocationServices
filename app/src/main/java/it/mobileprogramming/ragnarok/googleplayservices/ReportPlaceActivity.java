@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ReportPlaceActivity extends AppCompatActivity {
+public class ReportPlaceActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks {
 
     public static final String PLACEREPORT_REVIEW = "review";
     private GoogleApiClient mGoogleApiClient;
@@ -34,21 +34,40 @@ public class ReportPlaceActivity extends AppCompatActivity {
                 .Builder(this)
                 .addApi(Places.GEO_DATA_API)
                 .addApi(Places.PLACE_DETECTION_API)
+                .addConnectionCallbacks(this)
                 .build();
+    }
 
-        PendingResult<PlaceLikelihoodBuffer> result = Places.PlaceDetectionApi
-                .getCurrentPlace(mGoogleApiClient, null);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        mGoogleApiClient.disconnect();
+        super.onStop();
+    }
+
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        PendingResult<PlaceLikelihoodBuffer> result = Places.PlaceDetectionApi.getCurrentPlace(mGoogleApiClient, null);
         result.setResultCallback(new ResultCallback<PlaceLikelihoodBuffer>() {
             @Override
             public void onResult(final PlaceLikelihoodBuffer likelyPlaces) {
-                List<CharSequence> lista = new ArrayList<CharSequence>();
-                final List<String> listId = new ArrayList<String>();
+                List<CharSequence> lista = new ArrayList<>();
+                final List<String> listId = new ArrayList<>();
+
                 for (PlaceLikelihood placeLikelihood : likelyPlaces) {
                     lista.add(placeLikelihood.getPlace().getName());
                     listId.add(placeLikelihood.getPlace().getId());
                 }
-                final ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(ReportPlaceActivity.this,android.R.layout.simple_list_item_1,android.R.id.text1, lista);
+
+                final ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(ReportPlaceActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, lista);
                 final ListView list = (ListView) findViewById(R.id.listView);
+
                 list.setAdapter(adapter); //Set adapter and that's it.
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -70,17 +89,9 @@ public class ReportPlaceActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mGoogleApiClient.connect();
-    }
 
     @Override
-    protected void onStop() {
-        mGoogleApiClient.disconnect();
-        super.onStop();
+    public void onConnectionSuspended(int i) {
+
     }
-
-
 }

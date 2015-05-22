@@ -16,7 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.Collections;
 
 
-public class AddPlaceActivity extends AppCompatActivity {
+public class AddPlaceActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks {
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -30,21 +30,37 @@ public class AddPlaceActivity extends AppCompatActivity {
                 .Builder(this)
                 .addApi(Places.GEO_DATA_API)
                 .addApi(Places.PLACE_DETECTION_API)
-                //.addConnectionCallbacks(this)
+                .addConnectionCallbacks(this)
                 //.addOnConnectionFailedListener(this)
                 .build();
+    }
 
-        AddPlaceRequest place =
-                new AddPlaceRequest(
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        mGoogleApiClient.disconnect();
+        super.onStop();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        AddPlaceRequest place = new AddPlaceRequest(
                         "Manly Sea Life Sanctuary", // Name
                         new LatLng(-33.7991, 151.2813), // Latitude and longitude
                         "W Esplanade, Manly NSW 2095", // Address
                         Collections.singletonList(Place.TYPE_AQUARIUM), // Place types
                         "+61 1800 199 742", // Phone number
                         Uri.parse("http://www.manlysealifesanctuary.com.au/") // Website
-                );
+                        );
 
-        Places.GeoDataApi.addPlace(mGoogleApiClient, place)
+        Places.GeoDataApi
+                .addPlace(mGoogleApiClient, place)
                 .setResultCallback(new ResultCallback<PlaceBuffer>() {
                     @Override
                     public void onResult(PlaceBuffer places) {
@@ -59,16 +75,8 @@ public class AddPlaceActivity extends AppCompatActivity {
                 });
     }
 
-
     @Override
-    protected void onStart() {
-        super.onStart();
-        mGoogleApiClient.connect();
-    }
+    public void onConnectionSuspended(int i) {
 
-    @Override
-    protected void onStop() {
-        mGoogleApiClient.disconnect();
-        super.onStop();
     }
 }
