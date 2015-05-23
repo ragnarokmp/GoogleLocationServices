@@ -1,88 +1,83 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".ActivityRecognitionMain"
-    android:background="@android:color/background_light">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/ARD_most_probable"
-            android:id="@+id/ARD_tvTitle" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:id="@+id/ARD_ivActivityIcon" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ARD_wait_data"
-                android:id="@+id/ARD_tvConfidence"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/ARD_detailed_activity_list"
-            android:id="@+id/ARD_tvCurrentList" />
-
-        <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
+                style="@style/FLPTextView"
+                android:id="@+id/ARD_tvTitle"
+                android:text="@string/ARD_most_probable" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/ARD_ivActivityIcon"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/ARD_tvConfidence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/bordeaux"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/ARD_wait_data"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/FLPTextView"
+                android:id="@+id/ARD_tvCurrentList"
+                android:text="@string/ARD_detailed_activity_list" />
+
+            <ProgressBar
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:text="@string/ARD_wait_data"
-                android:id="@+id/ARD_tvIndexes"
-                android:background="#ffd3dfff" />
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ARD_tvActivityResults"
-                android:background="#ffd3dfff"
-                android:layout_gravity="right" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/ARD_log"
-            android:id="@+id/ARD_tvLog" />
-
-        <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/scrollView"
-            android:background="#fffffe8f">
+                android:id="@+id/ARD_tvIndexes"
+                android:gravity="center"
+                android:layout_marginTop="5dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                style="@style/FLPTextView"
+                android:id="@+id/ARD_tvLog"
+                android:text="@string/ARD_log" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ARD_tvActivityLog" />
-        </ScrollView>
-    </LinearLayout>
-</RelativeLayout>
+                android:id="@+id/ARD_tvActivityLog"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

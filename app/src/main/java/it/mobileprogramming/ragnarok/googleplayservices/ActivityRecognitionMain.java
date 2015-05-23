@@ -8,7 +8,9 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -24,7 +26,7 @@ import java.util.Date;
 
 public class ActivityRecognitionMain extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener{
     private GoogleApiClient googleApiClient=null;
-    private TextView tvActivities;
+    //private TextView tvActivities;
     private TextView tvNamesofActivities;
     private TextView tvLog;
     private String activityLog="";
@@ -32,18 +34,20 @@ public class ActivityRecognitionMain extends AppCompatActivity implements Google
     private TextView tvMostProbableConfidence;
     private ActivityDetectionBroadcastReceiver  receiver;
     private DetectedActivity lastMostProbableLogged=null;
+    private ProgressBar progress;
 
     //saves UI elements and creates an API client
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_recognition_main);
-        this.tvActivities       =   (TextView)this.findViewById(R.id.ARD_tvActivityResults);
+        //this.tvActivities       =   (TextView)this.findViewById(R.id.ARD_tvActivityResults);
         this.tvLog              =   (TextView)this.findViewById(R.id.ARD_tvActivityLog);
         this.ivCurrentActivity  =   (ImageView)this.findViewById(R.id.ARD_ivActivityIcon);
         this.tvNamesofActivities=   (TextView)this.findViewById(R.id.ARD_tvIndexes);
         this.tvMostProbableConfidence   =   (TextView)this.findViewById(R.id.ARD_tvConfidence);
         this.ivCurrentActivity.setImageResource(R.drawable.ard_unknown);
+        this.progress = (ProgressBar)this.findViewById(R.id.progressBar);
         googleApiClient =   new GoogleApiClient.Builder(this).
                 addApi(ActivityRecognition.API).
                 addConnectionCallbacks(this).
@@ -96,17 +100,20 @@ public class ActivityRecognitionMain extends AppCompatActivity implements Google
 
     //updates the view with the current activity list with their confidence levels
     public void updateActivitiesList(ArrayList<DetectedActivity> activities){
-        String values           =   "";
+
+        //hide progress bar
+        progress.setVisibility(View.GONE);
+
+        String values           =   " ";
         String activitiesNames  =   "";
         for(int i=0;i<activities.size();i++){
-            DetectedActivity thisActivity    =   activities.get(i);
-            String activityName    =   Utilities.getActivityName(thisActivity.getType(),this.getApplicationContext());
-            values              =   values+thisActivity.getConfidence()+"%\n";
-            activitiesNames     =   activitiesNames+activityName+" "+this.getString(R.string.ARD_confidence)+"\n";
+            DetectedActivity thisActivity       =   activities.get(i);
+            String activityName                 =   Utilities.getActivityName(thisActivity.getType(),this.getApplicationContext());
+            //values                              =   values+thisActivity.getConfidence()+"%\n";
+            activitiesNames                     =   activitiesNames+activityName+" "+this.getString(R.string.ARD_confidence)+values+thisActivity.getConfidence()+"%\n";
         }
-        this.tvActivities.setText(values);
+        //this.tvActivities.setText(values);
         this.tvNamesofActivities.setText(activitiesNames);
-
     }
 
     //updates the log textview
@@ -129,29 +136,39 @@ public class ActivityRecognitionMain extends AppCompatActivity implements Google
 
     //sets the most probable activity found
     public void setMostProbableActivity(DetectedActivity mostProbableActivity) {
+
         int imageResourceId =   Utilities.getActivityImage(mostProbableActivity.getType(),getApplicationContext());
         String actDescr     =   Utilities.getActivityName(mostProbableActivity.getType(),getApplicationContext());
-        this.tvMostProbableConfidence.setText(actDescr + " " + this.getString(R.string.ARD_confidence)
-                +"\t"+ mostProbableActivity.getConfidence() + "%\n");
-        this.ivCurrentActivity.setImageResource(imageResourceId);
 
+        this.tvMostProbableConfidence.setText(actDescr
+                + "\n"
+                + this.getString(R.string.ARD_confidence)
+                + "\t"+ mostProbableActivity.getConfidence()
+                + "%");
+
+        this.ivCurrentActivity.setImageResource(imageResourceId);
     }
 
     //private class, manages the intents coming from ActivityRecognitionIntentService
     public class ActivityDetectionBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            ActivityRecognitionResult aResult =   intent.getParcelableExtra("allActivities");
-            ArrayList<DetectedActivity> activitiesList= (ArrayList<DetectedActivity>) aResult.getProbableActivities();
+
+            ActivityRecognitionResult aResult           =   intent.getParcelableExtra("allActivities");
+            ArrayList<DetectedActivity> activitiesList  = (ArrayList<DetectedActivity>) aResult.getProbableActivities();
+
+            updateActivitiesList(activitiesList);
+
+            //calls this method because gives priority to 2nd level activity if has the same confidence level
+            DetectedActivity mostProbable  = Utilities.getSecondaryMostProbableActivity(aResult.getMostProbableActivity(),activitiesList);
+
+            addToLog(mostProbable);
+            setMostProbableActivity(mostProbable);
+
             /*for(int i=0;i<activitiesList.size();i++){
                 DetectedActivity    temp    =   activitiesList.get(i);
                 System.out.println(temp.toString());
             }*/ //block for testing purpose
-            updateActivitiesList(activitiesList);
-            DetectedActivity mostProbable    =   //calls this method because gives priority to 2nd level activity if has the same confidence level
-                    Utilities.getSecondaryMostProbableActivity(aResult.getMostProbableActivity(),activitiesList);
-            addToLog(mostProbable);
-            setMostProbableActivity(mostProbable);
         }
     }
 
