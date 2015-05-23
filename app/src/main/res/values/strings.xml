@@ -51,8 +51,8 @@
 
     <string name="FLP_title_activity">Fused Location Provider</string>
     <string name="FLP_last_location">Last location known by the system</string>
-    <string name="FLP_request_location_l">Resquest Location by Listeners</string>
-    <string name="FLP_request_location_p">Resquest Location by PendingIntent</string>
+    <string name="FLP_request_location_l">Request Location by Listeners</string>
+    <string name="FLP_request_location_p">Request Location by PendingIntent</string>
     <string name="FLP_activity_last_location">FLP Last Location</string>
     <string name="FLP_latitude_label">Latitude</string>
     <string name="FLP_longitude_label">Longitude</string>
